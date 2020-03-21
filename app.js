@@ -6,6 +6,7 @@ var path = require('path');
 // var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+var passport = require('passport');
 
 var indexRouter = require('./routes/indexRouter');
 var loginRouter = require('./routes/loginRouter');
@@ -31,6 +32,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/', loginRouter);
+
+// Include passport authentication modules
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
