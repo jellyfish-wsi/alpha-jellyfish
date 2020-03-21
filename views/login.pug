@@ -1,10 +1,8 @@
-doctype html
-head
-  meta(name='google-signin-client_id' content='1047503867120-q8pq30rt7e55goff92vsqmqvlnds3lj9.apps.googleusercontent.com')
-  script(src='https://apis.google.com/js/platform.js?onload=init' async='' defer='')
-.g-signin2(data-onsuccess='onSignIn' data-onfailure='onFailure' data-theme='light')
-main
+extends layout
+
+block content
   h1 Hello World!
   p This is the #{page_name} page
-  button(type='button' name='Sign Out' onclick='signOut()') Sign Out
-script(type='text/javascript' src='/js/script.js')
+  button(type='button' name='Sign Out' href='/logout') Sign Out
+  a(href='/auth/google') Log In with Google
+  script(type='text/javascript' src='/js/script.js')
