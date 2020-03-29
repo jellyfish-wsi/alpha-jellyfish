@@ -3,6 +3,6 @@ extends layout
 block content
   h1 Hello World!
   p This is the #{page_name} page
-  button(type='button' name='Sign Out' href='/logout') Sign Out
-  a(href='/auth/google') Log In with Google
+  form(action='/auth/google' method='get')
+    input(type='submit' value='Log In with Google') 
   script(type='text/javascript' src='/js/script.js')
