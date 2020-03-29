@@ -30,9 +30,6 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/', loginRouter);
-
 // Include passport authentication modules
 app.use(require('express-session')({
   secret: 'keyboard cat',
@@ -41,6 +38,9 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/', indexRouter);
+app.use('/auth', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
