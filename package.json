@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/dashaday/alpha-jellyfish#readme",
   "dependencies": {
+    "connect-ensure-login": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "cross-env": "^7.0.2",
     "debug": "~4.1.1",
