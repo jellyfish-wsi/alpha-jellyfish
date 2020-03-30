@@ -3,15 +3,15 @@ var router = express.Router();
 // Get configured passport from lib/google-auth.js
 var passport = require('../lib/google-auth').getConfiguredPassport();
 
-router.get('/login', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('login', { page_name: 'Login' });
 });
 
-router.get('/auth/google',
+router.get('/google',
   passport.authenticate('google', { scope: ['profile'] }));
 
-router.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
+router.get('/google/callback',
+  passport.authenticate('google', { failureRedirect: '/auth' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/flight');
@@ -19,7 +19,7 @@ router.get('/auth/google/callback',
 
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/');
+  res.redirect('/auth');
 });
 
 module.exports = router;
