@@ -11,7 +11,7 @@ block content
     input#flight-number(type='text' name='flightNumber' required='' placeholder="UA 247")
     label(for='departure-date') Departure Date
     input#departure-date(type='date' name='depDate' value='' min='2020-01-01' max='2025-12-31' required='')
-    button#submit-flight(type='submit') Look Up Flight
+    input#submit-flight(type='submit' input='Look Up Flight')
 
     //- If async_data is being passed as a variable by indexRouter, parse through it and display it on webpage
     if async_data
