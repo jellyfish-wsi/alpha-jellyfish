@@ -2,6 +2,10 @@ extends layout
 
 block content
   h1 Welcome to #{title}
+
+  if user
+    h2 Hi #{user.displayName}
+
   form#flight-information(action='http://localhost:3000/flight' method='POST')
     label(for='flight-number') Flight Number
     input#flight-number(type='text' name='flightNumber' required='' placeholder="UA 247")
